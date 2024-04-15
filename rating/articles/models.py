@@ -2,10 +2,18 @@ from django.db import models
 from rating.common.models import BaseModel
 from rating.users.models import BaseUser
 from django.utils.translation import gettext_lazy as _
+from django.conf import settings
 
 class Article(BaseModel):
-    name = models.CharField(max_length=100, db_index=True, unique=False, null=False, blank=False)
+    name = models.CharField(max_length=settings.ARTICLE_NAME_LEN, db_index=True, unique=False, null=False, blank=False)
     description = models.TextField(null=False, blank=False)
+    
+    rating_count = models.PositiveBigIntegerField(default=0)
+    rating_sum = models.FloatField(default=0)
+    
+    @property
+    def rating_average(self)-> float:
+        return 0 if self.rating_count == 0 else self.rating_sum / self.rating_count
     
     def __str__(self) -> str:
         return self.name

@@ -18,6 +18,7 @@ LOCAL_APPS = [
     'rating.common.apps.CommonConfig',
     'rating.users.apps.UsersConfig',
     'rating.authentication.apps.AuthenticationConfig',
+    'rating.articles.apps.ArticlesConfig',
 ]
 
 THIRD_PARTY_APPS = [
@@ -163,10 +164,12 @@ APP_DOMAIN = env("APP_DOMAIN", default="http://localhost:8000")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+ARTICLE_NAME_LEN = 100
+
+
 from config.settings.cors import *  # noqa
 from config.settings.jwt import *  # noqa
 from config.settings.sessions import *  # noqa
 from config.settings.celery import *  # noqa
 from config.settings.swagger import *  # noqa
 #from config.settings.sentry import *  # noqa
-#from config.settings.email_sending import *  # noqa
