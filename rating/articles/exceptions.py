@@ -8,5 +8,11 @@ class CreateArticleException(APIException):
     default_detail = _('A server error occurred. We could not create the article.')
     
     
+class ArticleNotFoundException(APIException):
+    status_code = status.HTTP_404_NOT_FOUND
+    default_detail = _('We could not find an article with this id.')
+    
+    
+    
     
     

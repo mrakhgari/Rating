@@ -9,7 +9,7 @@ class Article(BaseModel):
     description = models.TextField(null=False, blank=False)
     
     rating_count = models.PositiveBigIntegerField(default=0)
-    rating_sum = models.FloatField(default=0)
+    rating_sum = models.PositiveBigIntegerField(default=0)
     
     @property
     def rating_average(self)-> float:
@@ -18,7 +18,7 @@ class Article(BaseModel):
     def __str__(self) -> str:
         return self.name
     
-class RatingChoices(models.TextChoices):
+class RatingChoices(models.IntegerChoices):
     ONE_STAR = 1, _("1 star")
     TWO_STAR = 2, _("2 stars")
     THREE_STAR = 3, _("3 stars")

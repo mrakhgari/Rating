@@ -172,4 +172,4 @@ from config.settings.jwt import *  # noqa
 from config.settings.sessions import *  # noqa
 from config.settings.celery import *  # noqa
 from config.settings.swagger import *  # noqa
-#from config.settings.sentry import *  # noqa
+# from config.settings.sentry import *  # noqa

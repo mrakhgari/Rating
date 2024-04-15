@@ -70,7 +70,6 @@ class RegisterApi(APIView):
             user = register(
                     email=serializer.validated_data.get("email"),
                     password=serializer.validated_data.get("password"),
-                    bio=serializer.validated_data.get("bio"),
                     )
         except Exception as ex:
             return Response(
